@@ -1,3 +1,9 @@
+const dotenv = require("dotenv");
+
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
+
 module.exports = {
   siteMetadata: {
     title: "MY-SITE",
@@ -6,8 +12,8 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: {
-        accessToken: "\u0016CFPAT-L7GDde7iQYZHARmzZrg2KvMroCARo-c-rC7oCa0rxYA",
-        spaceId: "6xlij974l04a",
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
       },
     },
   ],
